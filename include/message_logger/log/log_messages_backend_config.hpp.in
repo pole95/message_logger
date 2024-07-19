@@ -45,6 +45,10 @@
 #ifndef MELO_USE_COUT
 #cmakedefine MELO_USE_COUT
 #endif
+#ifndef ROS2_BUILD
+#cmakedefine ROS2_BUILD
+#endif
+
 #ifdef MELO_USE_COUT
 #include "message_logger/log/log_messages_std.hpp"
 #ifndef MELO_MIN_SEVERITY
@@ -55,7 +59,7 @@
 #endif                                         // NDEBUG
 #endif                                         // MELO_MIN_SEVERITY
 #else                                          // MELO_USE_COUT
-#if ROS2_BUILD
+#ifdef ROS2_BUILD
 #include "message_logger/log/log_messages_ros2.hpp"
 #else
 #include "message_logger/log/log_messages_ros.hpp"
